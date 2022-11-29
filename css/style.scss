@@ -41,16 +41,40 @@ body {
         height: 400px;
         width: 750px;
 
+        .dollar{
+            background-position: 10px 50%;
+            background-image: url(../images/icon-dollar.svg);
+            background-repeat: no-repeat;
+        }
         input[type=text] {
-            background-color: $Light-grayish-cyan;
+            background-color: $Very-light-grayish-cyan;
             border: none;
-            border-radius: 2px;
+            border-radius: 3px;
             width: 100%;
             height: 35px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            &:focus{
+                outline: 2px solid $Strong-cyan;
+            }
         }
 
         &_left {
             margin: 20px 20px 20px 40px;
+
+            h2 {
+                color: $Dark-grayish-cyan;
+                font-size: 0.7rem;
+                margin-bottom: 5px;
+            }
+
+            .container_bill {
+                margin-bottom: 40px;
+            }
+
+            .container_select {
+                margin-bottom: 40px;
+            }
 
             .container_select_grid {
                 display: grid;
@@ -63,15 +87,37 @@ body {
                     border-radius: 5px;
                     border: none;
                     color: $White;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: lighten($color: $Strong-cyan, $amount: 30);
+                        color: $Very-dark-cyan;
+                    }
+                    // refaire en JS fix le click addEventlistener
+                    // &:focus{ 
+                    //     background-color: lighten($color: $Strong-cyan, $amount: 30);
+                    //     color: $Very-dark-cyan;
+                    // }
+                    
+                  
                 }
 
                 .custom {
+                    cursor: pointer;
                     background-color: $Very-light-grayish-cyan;
                     color: $Dark-grayish-cyan;
                     border-radius: 5px;
                     border: none;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .container_people {
+                .people_number{
+                    background-image: url(../images/icon-person.svg);
+                    background-repeat: no-repeat;
+                    background-position: 10px 50%;
+                   
                 }
             }
         }
@@ -79,18 +125,39 @@ body {
         &_right {
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 35px;
             margin: 20px;
             width: 50%;
             background-color: $Very-dark-cyan;
-            border-radius: 20px;
+            border-radius: 13px;
+            .container_total{
+                height: 100%;
+            }
+            input[value=Reset]{
+                height: 50px;
+                border-radius: 3px;
+                background-color: lighten($color: $Very-dark-cyan, $amount: 5);
+                border: none;
+                color: $Very-dark-cyan;
+                text-transform: uppercase;
+                font-size: 0.7rem;
+                cursor: pointer;
+                &:hover{
+                    background-color: lighten($color: $Strong-cyan, $amount: 30);
+                    color: $Very-dark-cyan;
+                }
+            }
+            h2 {
+                color: $Very-light-grayish-cyan;
+                font-size: 0.7rem;
 
+            }
+
+            p {
+                color: $Grayish-cyan;
+                font-size: 0.5rem;
+                margin-bottom: 40px;
+            }
         }
-
-        &_people {
-            display: flex;
-            flex-direction: column;
-        }
-
     }
 }

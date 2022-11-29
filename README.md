@@ -19,8 +19,9 @@ Il s'agit d'une solution au défi [Tip calculator app challenge on Frontend Ment
 - HTML5
 - CSS
 - Flexbox
+- Grid
 - Javascript
 
 ### Auteur
-- **Site Web** - Ajoutez votre nom ici
+
 - **Frontend Mentor** - https://www.frontendmentor.io/profile/Alexxis0
