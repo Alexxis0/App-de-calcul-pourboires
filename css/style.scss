@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+$Strong-cyan: hsl(172, 67%, 45%);
+$Very-dark-cyan: hsl(183, 100%, 17%);
+$Dark-grayish-cyan: hsl(186, 14%, 43%);
+$Grayish-cyan: hsl(184, 14%, 56%);
+$Light-grayish-cyan: hsl(185, 41%, 84%);
+$Very-light-grayish-cyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+
+:root {
+    font-size: 24px;
+}
+
+* {
+    list-style: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1440px;
+    background-color: $Light-grayish-cyan;
+
+    .logo {
+        position: absolute;
+        top: 10%;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-a;
+        background-color: $White;
+        border-radius: 20px;
+        height: 400px;
+        width: 750px;
+
+        input[type=text] {
+            background-color: $Light-grayish-cyan;
+            border: none;
+            border-radius: 2px;
+            width: 100%;
+            height: 35px;
+        }
+
+        &_left {
+            margin: 20px 20px 20px 40px;
+
+            .container_select_grid {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-auto-rows: 40px;
+                gap: 10px;
+
+                .pourcent {
+                    background-color: $Very-dark-cyan;
+                    border-radius: 5px;
+                    border: none;
+                    color: $White;
+                    font-size: 1rem;
+                }
+
+                .custom {
+                    background-color: $Very-light-grayish-cyan;
+                    color: $Dark-grayish-cyan;
+                    border-radius: 5px;
+                    border: none;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &_right {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin: 20px;
+            width: 50%;
+            background-color: $Very-dark-cyan;
+            border-radius: 20px;
+
+        }
+
+        &_people {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+}

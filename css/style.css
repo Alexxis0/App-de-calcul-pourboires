@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+:root {
+  font-size: 24px;
+}
+
+* {
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  max-width: 1440px;
+  background-color: hsl(185deg, 41%, 84%);
+}
+body .logo {
+  position: absolute;
+  top: 10%;
+}
+body .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-a;
+      -ms-flex-pack: space-a;
+          justify-content: space-a;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 20px;
+  height: 400px;
+  width: 750px;
+}
+body .container input[type=text] {
+  background-color: hsl(185deg, 41%, 84%);
+  border: none;
+  border-radius: 2px;
+  width: 100%;
+  height: 35px;
+}
+body .container_left {
+  margin: 20px 20px 20px 40px;
+}
+body .container_left .container_select_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-auto-rows: 40px;
+  gap: 10px;
+}
+body .container_left .container_select_grid .pourcent {
+  background-color: hsl(183deg, 100%, 17%);
+  border-radius: 5px;
+  border: none;
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1rem;
+}
+body .container_left .container_select_grid .custom {
+  background-color: hsl(189deg, 41%, 97%);
+  color: hsl(186deg, 14%, 43%);
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+body .container_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  width: 50%;
+  background-color: hsl(183deg, 100%, 17%);
+  border-radius: 20px;
+}
+body .container_people {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
