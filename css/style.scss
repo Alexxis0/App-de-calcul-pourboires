@@ -25,22 +25,32 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    max-width: 1440px;
     background-color: $Light-grayish-cyan;
-
+    
     .logo {
         position: absolute;
         top: 10%;
+        @media screen and (max-width: 800px) {
+            top: 5%;
+        }
     }
-
+    
     .container {
         display: flex;
-        justify-content: space-a;
         background-color: $White;
         border-radius: 20px;
         height: 400px;
         width: 750px;
-
+        @media screen and (max-width: 800px) {
+            height: 750px;
+            width: 100%;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 20%;
+        }
+        
         .dollar{
             background-position: 10px 50%;
             background-image: url(../images/icon-dollar.svg);
@@ -61,6 +71,11 @@ body {
 
         &_left {
             margin: 20px 20px 20px 40px;
+            @media screen and (max-width: 800px) {
+                margin: 0px 0px 20px 0px;
+                width: 100% ;
+
+            }
 
             h2 {
                 color: $Dark-grayish-cyan;
@@ -81,6 +96,11 @@ body {
                 grid-template-columns: repeat(3, 100px);
                 grid-auto-rows: 40px;
                 gap: 10px;
+                @media screen and (max-width: 800px) {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-auto-rows: 40px;
+    
+                }
 
                 .pourcent {
                     background-color: $Very-dark-cyan;
@@ -124,14 +144,33 @@ body {
 
         &_right {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; 
             padding: 35px;
             margin: 20px;
-            width: 50%;
+            width: 100%;
             background-color: $Very-dark-cyan;
             border-radius: 13px;
+            @media screen and (max-width: 800px) {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+
+            }
+            
             .container_total{
                 height: 100%;
+
+                h2 {
+                    color: $Very-light-grayish-cyan;
+                    font-size: 0.7rem;
+    
+                }
+    
+                p {
+                    color: $Grayish-cyan;
+                    font-size: 0.5rem;
+                    margin-bottom: 40px;
+                }   
             }
             input[value=Reset]{
                 height: 50px;
@@ -146,17 +185,6 @@ body {
                     background-color: lighten($color: $Strong-cyan, $amount: 30);
                     color: $Very-dark-cyan;
                 }
-            }
-            h2 {
-                color: $Very-light-grayish-cyan;
-                font-size: 0.7rem;
-
-            }
-
-            p {
-                color: $Grayish-cyan;
-                font-size: 0.5rem;
-                margin-bottom: 40px;
             }
         }
     }
