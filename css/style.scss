@@ -26,21 +26,23 @@ body {
     align-items: center;
     height: 100vh;
     background-color: $Light-grayish-cyan;
-    
+
     .logo {
         position: absolute;
         top: 10%;
+
         @media screen and (max-width: 800px) {
             top: 5%;
         }
     }
-    
+
     .container {
         display: flex;
         background-color: $White;
         border-radius: 20px;
         height: 400px;
         width: 750px;
+
         @media screen and (max-width: 800px) {
             height: 750px;
             width: 100%;
@@ -50,31 +52,35 @@ body {
             position: absolute;
             top: 20%;
         }
-        
-        .dollar{
+
+        .dollar {
             background-position: 10px 50%;
             background-image: url(../images/icon-dollar.svg);
             background-repeat: no-repeat;
         }
+
         input[type=text] {
             background-color: $Very-light-grayish-cyan;
             border: none;
+            text-align: end;
+            padding: 0px 15px;
             border-radius: 3px;
             width: 100%;
             height: 35px;
             font-size: 0.9rem;
             cursor: pointer;
-            &:focus{
+
+            &:focus {
                 outline: 2px solid $Strong-cyan;
             }
         }
 
         &_left {
             margin: 20px 20px 20px 40px;
+
             @media screen and (max-width: 800px) {
                 margin: 0px 0px 20px 0px;
-                width: 100% ;
-
+                width: 100%;
             }
 
             h2 {
@@ -96,10 +102,11 @@ body {
                 grid-template-columns: repeat(3, 100px);
                 grid-auto-rows: 40px;
                 gap: 10px;
+
                 @media screen and (max-width: 800px) {
                     grid-template-columns: repeat(2, 1fr);
                     grid-auto-rows: 40px;
-    
+
                 }
 
                 .pourcent {
@@ -109,17 +116,17 @@ body {
                     color: $White;
                     font-size: 0.9rem;
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         background-color: lighten($color: $Strong-cyan, $amount: 30);
                         color: $Very-dark-cyan;
                     }
+
                     // refaire en JS fix le click addEventlistener
                     // &:focus{ 
                     //     background-color: lighten($color: $Strong-cyan, $amount: 30);
                     //     color: $Very-dark-cyan;
                     // }
-                    
-                  
                 }
 
                 .custom {
@@ -133,46 +140,66 @@ body {
             }
 
             .container_people {
-                .people_number{
+                .people_number {
                     background-image: url(../images/icon-person.svg);
                     background-repeat: no-repeat;
                     background-position: 10px 50%;
-                   
+
                 }
             }
         }
 
         &_right {
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
             padding: 35px;
             margin: 20px;
             width: 100%;
             background-color: $Very-dark-cyan;
             border-radius: 13px;
+
             @media screen and (max-width: 800px) {
                 height: 100%;
                 width: 100%;
                 margin: 0;
 
             }
-            
-            .container_total{
+
+            .container_total {
+                position: relative;
                 height: 100%;
 
                 h2 {
                     color: $Very-light-grayish-cyan;
                     font-size: 0.7rem;
-    
+
                 }
-    
+
+                .price {
+                    color: $Strong-cyan;
+                    font-size: 1.5rem;
+                }
+
+                .person_price {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+
+                .total_person_price {
+                    position: absolute;
+                    right: 0;
+                    top: 83px;
+                }
+
                 p {
                     color: $Grayish-cyan;
                     font-size: 0.5rem;
                     margin-bottom: 40px;
-                }   
+                }
             }
-            input[value=Reset]{
+
+            input[value=Reset] {
                 height: 50px;
                 border-radius: 3px;
                 background-color: lighten($color: $Very-dark-cyan, $amount: 5);
@@ -181,7 +208,8 @@ body {
                 text-transform: uppercase;
                 font-size: 0.7rem;
                 cursor: pointer;
-                &:hover{
+
+                &:hover {
                     background-color: lighten($color: $Strong-cyan, $amount: 30);
                     color: $Very-dark-cyan;
                 }

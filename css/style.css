@@ -71,6 +71,8 @@ body .container .dollar {
 body .container input[type=text] {
   background-color: hsl(189deg, 41%, 97%);
   border: none;
+  text-align: end;
+  padding: 0px 15px;
   border-radius: 3px;
   width: 100%;
   height: 35px;
@@ -159,11 +161,26 @@ body .container_right {
   }
 }
 body .container_right .container_total {
+  position: relative;
   height: 100%;
 }
 body .container_right .container_total h2 {
   color: hsl(189deg, 41%, 97%);
   font-size: 0.7rem;
+}
+body .container_right .container_total .price {
+  color: hsl(172deg, 67%, 45%);
+  font-size: 1.5rem;
+}
+body .container_right .container_total .person_price {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+body .container_right .container_total .total_person_price {
+  position: absolute;
+  right: 0;
+  top: 83px;
 }
 body .container_right .container_total p {
   color: hsl(184deg, 14%, 56%);
