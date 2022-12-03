@@ -126,6 +126,10 @@ body .container_left .container_select_grid .pourcent:hover {
   background-color: #95eadf;
   color: hsl(183deg, 100%, 17%);
 }
+body .container_left .container_select_grid .pourcentStyle:focus {
+  background-color: hsl(172deg, 67%, 45%);
+  color: hsl(183deg, 100%, 17%);
+}
 body .container_left .container_select_grid .custom {
   cursor: pointer;
   background-color: hsl(189deg, 41%, 97%);
