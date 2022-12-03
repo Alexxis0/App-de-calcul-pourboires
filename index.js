@@ -8,6 +8,7 @@ let pourcent25 = document.querySelector("input[value='25%']");
 let pourcent50 = document.querySelector("input[value='50%']");
 let pourcentNumber = [pourcent5, pourcent10, pourcent15, pourcent25, pourcent50];
 
+
 bill.addEventListener("change", () => {
     let billValue = bill.value;
     console.log(billValue);
@@ -20,7 +21,10 @@ peopleNumber.addEventListener("change", () => {
 function stylePourcent() {
     pourcentNumber.forEach((element) => {
         element.addEventListener("click", () => {
-            element.classList.toggle("pourcentStyle");
+            pourcentNumber.forEach(element => {
+                element.classList.remove("pourcentStyle")
+            });
+            element.classList.add("pourcentStyle"); // ajouter focus en js pour debug
         });
     });
 }

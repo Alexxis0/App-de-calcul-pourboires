@@ -14,7 +14,7 @@ $pourcentStyle: (
 
 @mixin pourcent-style($map) {
     @each $mod in $map {
-        .#{$mod}:focus {
+        .#{$mod} {
             background-color: $Strong-cyan;
             color: $Very-dark-cyan;
         }
@@ -82,7 +82,6 @@ body {
             width: 100%;
             height: 35px;
             font-size: 0.9rem;
-            cursor: pointer;
 
             &:focus {
                 outline: 2px solid $Strong-cyan;
