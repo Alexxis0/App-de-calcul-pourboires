@@ -1,10 +1,15 @@
 let bill = document.querySelector(".dollar");
+let billValue = "";
 let peopleNumber = document.querySelector(".people_number");
+let peopleValue = "";
 let pourcent5 = document.querySelector("input[value='5%']");
 let pourcent10 = document.querySelector("input[value='10%']");
 let pourcent15 = document.querySelector("input[value='15%']");
 let pourcent25 = document.querySelector("input[value='25%']");
 let pourcent50 = document.querySelector("input[value='50%']");
+let personPrice = document.querySelector(".person_price");
+let totalPersonPrice = document.querySelector(".total_person_price");
+let pourcentValue = "";
 let tablePourcent = [
     {
         pourcentNumber: 5,
@@ -27,18 +32,14 @@ let tablePourcent = [
         pourcentVar: pourcent50,
     },
 ];
-
-
-
-
-
+console.log(tablePourcent.pourcentNumber);
 
 function stylePourcent() {
     tablePourcent.forEach((element) => {
         element.pourcentVar.addEventListener("focus", () => {
-            tablePourcent.forEach((element) => {
-                element.pourcentVar.classList.remove("pourcentStyle");
-                element.pourcentVar.checked = false;
+            tablePourcent.forEach((element2) => {
+                element2.pourcentVar.classList.remove("pourcentStyle");
+                element2.pourcentVar.checked = false;
             });
             element.pourcentVar.classList.add("pourcentStyle");
             element.pourcentVar.checked = true;
@@ -47,22 +48,44 @@ function stylePourcent() {
 }
 stylePourcent();
 
+function billTest() {
+    return new Promise((resolve) => {
+        bill.addEventListener("change", () => {
+            billValue = bill.value;
+            console.log(billValue);
+            resolve();
+        });
+    });
+}
 
-bill.addEventListener("change", () => {
-    let billValue = bill.value;
-    console.log(billValue);
-});
-peopleNumber.addEventListener("change", () => {
-    let peopleValue = peopleNumber.value;
-    console.log(peopleValue);
-});
+function pourcentClick() {
+    return new Promise((resolve) => {
+        tablePourcent.forEach((element) => {
+            element.pourcentVar.addEventListener("click", () => {
+                pourcentValue = element.pourcentNumber;
+                console.log(pourcentValue);
+            });
+        });
+        resolve();
+    });
+}
 
-function calculPourcent () {
+function peopleNumberTest() {
+    return new Promise((resolve) => {
+        peopleNumber.addEventListener("change", () => {
+            peopleValue = peopleNumber.value;
+            console.log(peopleValue);
+            resolve();
+        });
+    });
+}
 
-    
-
-
-
-    // console.log(billValue * tablePourcent[0].pourcentNumber);
+async function calculPourcent() {
+    await billTest();
+    await pourcentClick();
+    await peopleNumberTest();
+    let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
+    tipAmount = tipAmount.toFixed(2);
+    personPrice.textContent = `$` + tipAmount 
 }
 calculPourcent();
