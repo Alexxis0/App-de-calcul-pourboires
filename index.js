@@ -1,7 +1,9 @@
+let container = document.querySelector(".container");
 let bill = document.querySelector(".dollar");
 let billValue = "";
 let peopleNumber = document.querySelector(".people_number");
 let peopleValue = "";
+let pourcent = document.querySelectorAll(".pourcent");
 let pourcent5 = document.querySelector("input[value='5%']");
 let pourcent10 = document.querySelector("input[value='10%']");
 let pourcent15 = document.querySelector("input[value='15%']");
@@ -32,7 +34,6 @@ let tablePourcent = [
         pourcentVar: pourcent50,
     },
 ];
-console.log(tablePourcent.pourcentNumber);
 
 function stylePourcent() {
     tablePourcent.forEach((element) => {
@@ -64,9 +65,9 @@ function pourcentClick() {
             element.pourcentVar.addEventListener("click", () => {
                 pourcentValue = element.pourcentNumber;
                 console.log(pourcentValue);
+                resolve();
             });
         });
-        resolve();
     });
 }
 
@@ -84,8 +85,26 @@ async function calculPourcent() {
     await billTest();
     await pourcentClick();
     await peopleNumberTest();
-    let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
-    tipAmount = tipAmount.toFixed(2);
-    personPrice.textContent = `$` + tipAmount 
+
+    container.addEventListener("change", () => {
+        let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
+        tipAmount = parseFloat(tipAmount.toFixed(2));
+        personPrice.textContent = `$` + tipAmount;
+
+        let totalPerson = (billValue / peopleValue) + tipAmount;
+        totalPerson = totalPerson.toFixed(2);
+        totalPersonPrice.textContent = `$` + totalPerson;
+    });
+    tablePourcent.forEach((element) => {
+        element.pourcentVar.addEventListener("click", () => {
+            let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
+            tipAmount = parseFloat(tipAmount.toFixed(2));
+            personPrice.textContent = `$` + tipAmount;
+            
+            let totalPerson = (billValue / peopleValue) + tipAmount;
+            totalPerson = totalPerson.toFixed(2);
+            totalPersonPrice.textContent = `$` + totalPerson;
+        });
+    });
 }
 calculPourcent();
