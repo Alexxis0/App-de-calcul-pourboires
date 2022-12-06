@@ -12,6 +12,7 @@ let pourcent50 = document.querySelector("input[value='50%']");
 let personPrice = document.querySelector(".person_price");
 let totalPersonPrice = document.querySelector(".total_person_price");
 let pourcentValue = "";
+let btnReset = document.querySelector("input[value='Reset']");
 let tablePourcent = [
     {
         pourcentNumber: 5,
@@ -82,8 +83,8 @@ function peopleNumberTest() {
 }
 
 async function calculPourcent() {
-    await billTest();
-    await pourcentClick();
+    billTest();
+    pourcentClick();
     await peopleNumberTest();
 
     container.addEventListener("change", () => {
@@ -91,7 +92,7 @@ async function calculPourcent() {
         tipAmount = parseFloat(tipAmount.toFixed(2));
         personPrice.textContent = `$` + tipAmount;
 
-        let totalPerson = (billValue / peopleValue) + tipAmount;
+        let totalPerson = billValue / peopleValue + tipAmount;
         totalPerson = totalPerson.toFixed(2);
         totalPersonPrice.textContent = `$` + totalPerson;
     });
@@ -100,11 +101,18 @@ async function calculPourcent() {
             let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
             tipAmount = parseFloat(tipAmount.toFixed(2));
             personPrice.textContent = `$` + tipAmount;
-            
-            let totalPerson = (billValue / peopleValue) + tipAmount;
+
+            let totalPerson = billValue / peopleValue + tipAmount;
             totalPerson = totalPerson.toFixed(2);
             totalPersonPrice.textContent = `$` + totalPerson;
         });
     });
 }
 calculPourcent();
+
+function reset() {
+    btnReset.addEventListener("click", () => {
+        
+    });
+}
+reset();
