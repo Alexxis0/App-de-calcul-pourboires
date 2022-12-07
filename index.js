@@ -54,7 +54,6 @@ function billTest() {
     return new Promise((resolve) => {
         bill.addEventListener("change", () => {
             billValue = bill.value;
-            console.log(billValue);
             resolve();
         });
     });
@@ -65,7 +64,6 @@ function pourcentClick() {
         tablePourcent.forEach((element) => {
             element.pourcentVar.addEventListener("click", () => {
                 pourcentValue = element.pourcentNumber;
-                console.log(pourcentValue);
                 resolve();
             });
         });
@@ -76,17 +74,11 @@ function peopleNumberTest() {
     return new Promise((resolve) => {
         peopleNumber.addEventListener("change", () => {
             peopleValue = peopleNumber.value;
-            console.log(peopleValue);
             resolve();
         });
     });
 }
-
-async function calculPourcent() {
-    billTest();
-    pourcentClick();
-    await peopleNumberTest();
-
+function calculTipResponse() {
     container.addEventListener("change", () => {
         let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
         tipAmount = parseFloat(tipAmount.toFixed(2));
@@ -108,11 +100,23 @@ async function calculPourcent() {
         });
     });
 }
-calculPourcent();
+
+async function calculTip() {
+    billTest();
+    pourcentClick();
+    await peopleNumberTest();
+    calculTipResponse();
+}
+calculTip();
 
 function reset() {
     btnReset.addEventListener("click", () => {
-        
+        tablePourcent.forEach((element) => {
+            element.pourcentVar.classList.remove("pourcentStyle");
+            element.pourcentVar.checked = false;
+            personPrice.textContent = `$0.00`;
+            totalPersonPrice.textContent = `$0.00`;
+        });
     });
 }
 reset();
