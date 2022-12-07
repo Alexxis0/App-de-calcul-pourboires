@@ -137,6 +137,9 @@ body .container_left .container_select_grid .custom {
   border: none;
   font-size: 0.9rem;
 }
+body .container_left .container_select_grid .custom_color {
+  color: initial;
+}
 body .container_left .container_people .people_number {
   background-image: url(../images/icon-person.svg);
   background-repeat: no-repeat;

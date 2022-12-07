@@ -9,6 +9,7 @@ let pourcent10 = document.querySelector("input[value='10%']");
 let pourcent15 = document.querySelector("input[value='15%']");
 let pourcent25 = document.querySelector("input[value='25%']");
 let pourcent50 = document.querySelector("input[value='50%']");
+let customPourcent = document.querySelector(".custom");
 let personPrice = document.querySelector(".person_price");
 let totalPersonPrice = document.querySelector(".total_person_price");
 let pourcentValue = "";
@@ -69,6 +70,27 @@ function pourcentClick() {
         });
     });
 }
+function btnCustom() {
+    customPourcent.type = `text`;
+    customPourcent.value = "";
+    customPourcent.classList.add("custom_color");
+
+    tablePourcent.forEach((element) => {
+        element.pourcentVar.classList.remove("pourcentStyle");
+        element.pourcentVar.checked = false;
+    });
+}
+
+function btnCustomDelete() {
+    tablePourcent.forEach((element) => {
+        element.pourcentVar.addEventListener("click", () => {
+            customPourcent.type = "button";
+            customPourcent.value = "Custom";
+            customPourcent.classList.remove("custom_color");
+        });
+    });
+}
+btnCustomDelete();
 
 function peopleNumberTest() {
     return new Promise((resolve) => {

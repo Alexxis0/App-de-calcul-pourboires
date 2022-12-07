@@ -151,6 +151,9 @@ body {
                     border-radius: 5px;
                     border: none;
                     font-size: 0.9rem;
+                    &_color{
+                        color: initial;
+                    }
                 }
             }
 
