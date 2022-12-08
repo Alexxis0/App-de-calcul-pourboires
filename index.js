@@ -36,7 +36,6 @@ let tablePourcent = [
         pourcentVar: pourcent50,
     },
 ];
-
 function stylePourcent() {
     tablePourcent.forEach((element) => {
         element.pourcentVar.addEventListener("focus", () => {
@@ -65,9 +64,9 @@ function pourcentClick() {
         tablePourcent.forEach((element) => {
             element.pourcentVar.addEventListener("click", () => {
                 pourcentValue = element.pourcentNumber;
-                resolve();
             });
         });
+        resolve();
     });
 }
 function btnCustom() {
@@ -79,6 +78,13 @@ function btnCustom() {
         element.pourcentVar.classList.remove("pourcentStyle");
         element.pourcentVar.checked = false;
     });
+}
+function btnCustomValue() {
+    customPourcent.addEventListener('change', () => {
+        customPourcent.checked = true;
+        pourcentValue = customPourcent.value
+        console.log(pourcentValue);
+    })
 }
 
 function btnCustomDelete() {
@@ -115,7 +121,7 @@ function calculTipResponse() {
             let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
             tipAmount = parseFloat(tipAmount.toFixed(2));
             personPrice.textContent = `$` + tipAmount;
-
+            
             let totalPerson = billValue / peopleValue + tipAmount;
             totalPerson = totalPerson.toFixed(2);
             totalPersonPrice.textContent = `$` + totalPerson;
@@ -126,6 +132,7 @@ function calculTipResponse() {
 async function calculTip() {
     billTest();
     pourcentClick();
+    btnCustomValue()
     await peopleNumberTest();
     calculTipResponse();
 }
@@ -142,3 +149,4 @@ function reset() {
     });
 }
 reset();
+
