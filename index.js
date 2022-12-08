@@ -83,7 +83,6 @@ function btnCustomValue() {
     customPourcent.addEventListener('change', () => {
         customPourcent.checked = true;
         pourcentValue = customPourcent.value
-        console.log(pourcentValue);
     })
 }
 
@@ -143,6 +142,10 @@ function reset() {
         tablePourcent.forEach((element) => {
             element.pourcentVar.classList.remove("pourcentStyle");
             element.pourcentVar.checked = false;
+            customPourcent.checked = false;
+            customPourcent.type = `button`;
+            customPourcent.value = "Custom";
+            customPourcent.classList.remove('custom_color')
             personPrice.textContent = `$0.00`;
             totalPersonPrice.textContent = `$0.00`;
         });
