@@ -54,6 +54,11 @@ function billTest() {
     return new Promise((resolve) => {
         bill.addEventListener("change", () => {
             billValue = bill.value;
+            if (billValue == 0){
+                bill.style.outline= "2px solid rgb(255, 77, 77)";
+            } else {
+                bill.style.outline= null;
+            }
             resolve();
         });
     });
@@ -80,10 +85,10 @@ function btnCustom() {
     });
 }
 function btnCustomValue() {
-    customPourcent.addEventListener('change', () => {
+    customPourcent.addEventListener("change", () => {
         customPourcent.checked = true;
-        pourcentValue = customPourcent.value
-    })
+        pourcentValue = customPourcent.value;
+    });
 }
 
 function btnCustomDelete() {
@@ -101,38 +106,49 @@ function peopleNumberTest() {
     return new Promise((resolve) => {
         peopleNumber.addEventListener("change", () => {
             peopleValue = peopleNumber.value;
+            if (peopleValue == 0){
+                peopleNumber.style.outline= "2px solid rgb(255, 77, 77)";
+            } else {
+                peopleNumber.style.outline= null;
+            }
             resolve();
         });
     });
 }
 function calculTipResponse() {
     container.addEventListener("change", () => {
-        let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
-        tipAmount = parseFloat(tipAmount.toFixed(2));
-        personPrice.textContent = `$` + tipAmount;
-
-        let totalPerson = billValue / peopleValue + tipAmount;
-        totalPerson = totalPerson.toFixed(2);
-        totalPersonPrice.textContent = `$` + totalPerson;
-    });
-    tablePourcent.forEach((element) => {
-        element.pourcentVar.addEventListener("click", () => {
-            let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
-            tipAmount = parseFloat(tipAmount.toFixed(2));
-            personPrice.textContent = `$` + tipAmount;
-            
-            let totalPerson = billValue / peopleValue + tipAmount;
-            totalPerson = totalPerson.toFixed(2);
-            totalPersonPrice.textContent = `$` + totalPerson;
-        });
+        tablePourcent.forEach((element) => {
+            if (billValue != "" && peopleNumber != "" && element.pourcentVar.checked == true || customPourcent.checked == true) {
+                console.log("yes");
+                let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
+                tipAmount = parseFloat(tipAmount.toFixed(2));
+                personPrice.textContent = `$` + tipAmount;
+                
+                let totalPerson = billValue / peopleValue + tipAmount;
+                totalPerson = totalPerson.toFixed(2);
+                totalPersonPrice.textContent = `$` + totalPerson;
+                
+                tablePourcent.forEach((element) => {
+                    element.pourcentVar.addEventListener("click", () => {
+                        let tipAmount = (billValue * pourcentValue) / 100 / peopleValue;
+                        tipAmount = parseFloat(tipAmount.toFixed(2));
+                        personPrice.textContent = `$` + tipAmount;
+                        
+                        let totalPerson = billValue / peopleValue + tipAmount;
+                        totalPerson = totalPerson.toFixed(2);
+                        totalPersonPrice.textContent = `$` + totalPerson;
+                    });
+                });
+            }
+        })
     });
 }
 
-async function calculTip() {
+function calculTip() {
     billTest();
     pourcentClick();
-    btnCustomValue()
-    await peopleNumberTest();
+    btnCustomValue();
+    peopleNumberTest();
     calculTipResponse();
 }
 calculTip();
@@ -145,11 +161,12 @@ function reset() {
             customPourcent.checked = false;
             customPourcent.type = `button`;
             customPourcent.value = "Custom";
-            customPourcent.classList.remove('custom_color')
+            customPourcent.classList.remove("custom_color");
+            bill.value="";
+            peopleNumber.value="";
             personPrice.textContent = `$0.00`;
             totalPersonPrice.textContent = `$0.00`;
         });
     });
 }
 reset();
-
