@@ -81,6 +81,9 @@ body .container input[type=text] {
 body .container input[type=text]:focus {
   outline: 2px solid hsl(172deg, 67%, 45%);
 }
+body .container .error_focus:focus {
+  outline: 2px solid rgb(217, 107, 85) !important;
+}
 body .container_left {
   margin: 20px 20px 20px 40px;
 }
@@ -139,6 +142,19 @@ body .container_left .container_select_grid .custom {
 }
 body .container_left .container_select_grid .custom_color {
   color: initial;
+}
+body .container_left .container_people h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+body .container_left .container_people h2 .error_input {
+  display: none;
+  font-size: 0.6rem;
+  color: rgb(217, 107, 85);
 }
 body .container_left .container_people .people_number {
   background-image: url(../images/icon-person.svg);

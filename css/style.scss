@@ -88,6 +88,12 @@ body {
             }
         }
 
+        .error_focus {
+            &:focus {
+                outline: 2px solid rgb(217, 107, 85) !important;
+            }
+        }
+
         &_left {
             margin: 20px 20px 20px 40px;
 
@@ -159,6 +165,18 @@ body {
             }
 
             .container_people {
+                h2 {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .error_input {
+                        display: none;
+                        font-size: 0.6rem;
+                        color: rgb(217, 107, 85);
+                    }
+
+                }
+
                 .people_number {
                     background-image: url(../images/icon-person.svg);
                     background-repeat: no-repeat;
